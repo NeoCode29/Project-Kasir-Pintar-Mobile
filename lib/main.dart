@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
+import "package:kasir_pintar/pages/halamanForgotPassword.dart";
 import "package:kasir_pintar/pages/halamanGantiProfile.dart";
+import "package:kasir_pintar/pages/halamanPasswordBaru.dart";
 import "package:kasir_pintar/pages/halamanRegister.dart";
 
 void main() {
@@ -17,15 +19,17 @@ class myApp extends StatelessWidget {
       routes: {
         "halaman cover": (BuildContext context) => HalamanCover(),
         "halaman register": (context) => HalamanRegister(),
-        "halaman ganti password": (context) => HalamanGantiProfile()
+        "halaman ganti password": (context) => HalamanGantiProfile(),
+        "halaman lupa password": (context) => HalamanForgotPassword(),
+        "halaman password baru": (context) => HalamanNewPassword()
       },
-      home: HalamanGantiProfile(),
+      home: HalamanNewPassword(),
     );
   }
 }
 
 class HalamanCover extends StatelessWidget {
-  const HalamanCover({super.key});
+  HalamanCover({super.key});
 
   @override
   Widget build(BuildContext context) {
