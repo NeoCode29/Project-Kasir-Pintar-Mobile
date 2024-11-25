@@ -29,8 +29,7 @@ class RegularInput extends StatelessWidget {
                   borderSide: BorderSide.none),
               filled: true,
               fillColor: const Color.fromRGBO(230, 230, 230, 1)),
-          style:
-              TextStyle(color: Color.fromRGBO(143, 139, 149, 1), fontSize: 12),
+          style: TextStyle(color: Color.fromRGBO(64, 64, 65, 1), fontSize: 12),
         )
       ],
     );

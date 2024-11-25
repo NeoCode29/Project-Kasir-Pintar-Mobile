@@ -16,7 +16,9 @@ class RegulerButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             padding: EdgeInsets.symmetric(vertical: 20),
             backgroundColor: Color.fromRGBO(13, 153, 255, 1),
-            foregroundColor: Colors.white));
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))));
   }
 }
 

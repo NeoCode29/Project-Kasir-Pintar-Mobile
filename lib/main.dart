@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import "package:kasir_pintar/pages/halamanForgotPassword.dart";
 import "package:kasir_pintar/pages/halamanGantiProfile.dart";
+import "package:kasir_pintar/pages/halamanLogin.dart";
 import "package:kasir_pintar/pages/halamanPasswordBaru.dart";
 import "package:kasir_pintar/pages/halamanRegister.dart";
 
@@ -23,7 +24,7 @@ class myApp extends StatelessWidget {
         "halaman lupa password": (context) => HalamanForgotPassword(),
         "halaman password baru": (context) => HalamanNewPassword()
       },
-      home: HalamanNewPassword(),
+      home: HalamanLogin(),
     );
   }
 }
