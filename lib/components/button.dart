@@ -36,3 +36,22 @@ class CameraButton extends StatelessWidget {
     );
   }
 }
+
+class OutlineButton extends StatelessWidget {
+  final VoidCallback handlePress;
+  final String label;
+  OutlineButton({super.key, required this.handlePress, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: this.handlePress,
+      child: Text(
+        this.label,
+        style: TextStyle(color: Color.fromRGBO(13, 153, 255, 1), fontSize: 18),
+      ),
+      style: OutlinedButton.styleFrom(
+          side: BorderSide(color: Color.fromRGBO(13, 153, 255, 1), width: 2)),
+    );
+  }
+}

@@ -62,7 +62,21 @@ class HalamanLogin extends StatelessWidget {
                 placeholder: "insert password",
               ),
               SizedBox(
-                height: 24,
+                height: 12,
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Link(
+                      handlePress: () {
+                        Navigator.pushNamed(context, "halaman forgot password");
+                      },
+                      label: "lupa password ?")
+                ],
+              ),
+              SizedBox(
+                height: 12,
               ),
               RegulerButton(handlePress: () {}, label: "login"),
               SizedBox(height: 8),
