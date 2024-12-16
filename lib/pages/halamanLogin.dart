@@ -78,7 +78,15 @@ class HalamanLogin extends StatelessWidget {
               SizedBox(
                 height: 12,
               ),
-              RegulerButton(handlePress: () {}, label: "login"),
+              RegulerButton(
+                handlePress: () {
+                  Navigator.pushNamed(
+                    context,
+                    'halaman dashboard'
+                  );
+                }, 
+                label: "login"
+              ),
               SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
