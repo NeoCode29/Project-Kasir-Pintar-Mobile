@@ -10,7 +10,7 @@ class SidebarWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
             ),
             child: Row(
@@ -20,8 +20,8 @@ class SidebarWidget extends StatelessWidget {
                   'assets/images/cash-machine.png',
                   height: 50,
                 ),
-                SizedBox(width: 10),
-                Text(
+                const SizedBox(width: 10),
+                const Text(
                   'Kasir Pintar',
                   style: TextStyle(
                     color: Colors.white,
@@ -90,13 +90,10 @@ class SidebarWidget extends StatelessWidget {
           ),
           _buildMenuItem(
             icon: Icons.logout,
-            title: 'Keluar', 
+            title: 'Keluar',
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(
-                context,
-                'halaman login'
-              );
+              Navigator.pushNamed(context, 'halaman login');
             },
           ),
         ],

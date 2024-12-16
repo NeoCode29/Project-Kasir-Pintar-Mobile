@@ -4,7 +4,7 @@ class RegularInput extends StatelessWidget {
   final String label;
   final String placeholder;
   final TextEditingController controller;
-  RegularInput(
+  const RegularInput(
       {super.key,
       required this.label,
       required this.controller,
@@ -16,20 +16,21 @@ class RegularInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          this.label,
-          style: TextStyle(fontWeight: FontWeight.w700),
+          label,
+          style: const TextStyle(fontWeight: FontWeight.w700),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextField(
           controller: controller,
           decoration: InputDecoration(
-              hintText: this.placeholder,
+              hintText: placeholder,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none),
               filled: true,
               fillColor: const Color.fromRGBO(230, 230, 230, 1)),
-          style: TextStyle(color: Color.fromRGBO(64, 64, 65, 1), fontSize: 12),
+          style: const TextStyle(
+              color: Color.fromRGBO(64, 64, 65, 1), fontSize: 12),
         )
       ],
     );
@@ -66,9 +67,9 @@ class _PasswordInputState extends State<PasswordInput> {
       children: [
         Text(
           widget.label,
-          style: TextStyle(fontWeight: FontWeight.w700),
+          style: const TextStyle(fontWeight: FontWeight.w700),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextField(
           obscureText: isObsecure,
           controller: widget.controller,
@@ -83,8 +84,8 @@ class _PasswordInputState extends State<PasswordInput> {
                   onPressed: _togglePasswordVisibility,
                   icon: Icon(
                       isObsecure ? Icons.visibility : Icons.visibility_off))),
-          style:
-              TextStyle(color: Color.fromRGBO(143, 139, 149, 1), fontSize: 12),
+          style: const TextStyle(
+              color: Color.fromRGBO(143, 139, 149, 1), fontSize: 12),
         )
       ],
     );
@@ -95,7 +96,7 @@ class NumberInput extends StatelessWidget {
   final String label;
   final String placeholder;
   final TextEditingController controller;
-  NumberInput(
+  const NumberInput(
       {super.key,
       required this.label,
       required this.controller,
@@ -107,22 +108,22 @@ class NumberInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          this.label,
-          style: TextStyle(fontWeight: FontWeight.w700),
+          label,
+          style: const TextStyle(fontWeight: FontWeight.w700),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextField(
           keyboardType: TextInputType.phone,
           controller: controller,
           decoration: InputDecoration(
-              hintText: this.placeholder,
+              hintText: placeholder,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none),
               filled: true,
               fillColor: const Color.fromRGBO(230, 230, 230, 1)),
-          style:
-              TextStyle(color: Color.fromRGBO(143, 139, 149, 1), fontSize: 12),
+          style: const TextStyle(
+              color: Color.fromRGBO(143, 139, 149, 1), fontSize: 12),
         )
       ],
     );

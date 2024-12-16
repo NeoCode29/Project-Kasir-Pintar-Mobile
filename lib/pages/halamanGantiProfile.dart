@@ -12,11 +12,11 @@ class HalamanGantiProfile extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -29,7 +29,8 @@ class HalamanGantiProfile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
+                    width: 340,
                     child: Text(
                       "Lengkapi profile kalian disini",
                       textAlign: TextAlign.center,
@@ -37,18 +38,17 @@ class HalamanGantiProfile extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 10),
                     ),
-                    width: 340,
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [GantiProfile()],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               RegularInput(
@@ -56,7 +56,7 @@ class HalamanGantiProfile extends StatelessWidget {
                 controller: usernameController,
                 placeholder: "insert username",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               NumberInput(
@@ -64,7 +64,7 @@ class HalamanGantiProfile extends StatelessWidget {
                 controller: nohpController,
                 placeholder: "+62 ",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               RegularInput(

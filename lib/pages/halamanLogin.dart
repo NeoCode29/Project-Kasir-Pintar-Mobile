@@ -16,7 +16,7 @@ class HalamanLogin extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Login",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
           textAlign: TextAlign.center,
@@ -25,17 +25,18 @@ class HalamanLogin extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
+                    width: size.width - 40,
                     child: Text(
                       "Selamat datang kembali! Silakan masuk ke akun Anda dengan mengisi informasi di bawah ini. Jika Anda belum memiliki akun, silakan daftar untuk mendapatkan akses.",
                       textAlign: TextAlign.center,
@@ -43,11 +44,10 @@ class HalamanLogin extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 12),
                     ),
-                    width: size.width - 40,
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               RegularInput(
@@ -55,13 +55,13 @@ class HalamanLogin extends StatelessWidget {
                 controller: usernameController,
                 placeholder: "insert username",
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               PasswordInput(
                 label: "password",
                 controller: passwordController,
                 placeholder: "insert password",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               Row(
@@ -75,23 +75,19 @@ class HalamanLogin extends StatelessWidget {
                       label: "lupa password ?")
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 12,
               ),
               RegulerButton(
-                handlePress: () {
-                  Navigator.pushNamed(
-                    context,
-                    'halaman dashboard'
-                  );
-                }, 
-                label: "login"
-              ),
-              SizedBox(height: 8),
+                  handlePress: () {
+                    Navigator.pushNamed(context, 'halaman dashboard');
+                  },
+                  label: "login"),
+              const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("belum punya akun ? "),
+                  const Text("belum punya akun ? "),
                   Link(
                       handlePress: () {
                         Navigator.pushNamed(context, "halaman register");

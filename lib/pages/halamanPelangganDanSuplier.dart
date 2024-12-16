@@ -8,30 +8,30 @@ class HalamanPelangganDanSuplier extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Pelanggan & Suplier",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
         ),
         centerTitle: true,
       ),
-      drawer: SidebarWidget(),
+      drawer: const SidebarWidget(),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
-            Text(
+            const Text(
               "Menu Pelanggan & Suplier",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Navigasi ke halaman data pelanggan
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(16),
                 child: Row(
                   children: [
@@ -45,12 +45,12 @@ class HalamanPelangganDanSuplier extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             ElevatedButton(
               onPressed: () {
                 // Navigasi ke halaman data suplier
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(16),
                 child: Row(
                   children: [

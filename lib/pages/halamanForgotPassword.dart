@@ -9,6 +9,8 @@ class HalamanForgotPassword extends StatelessWidget {
   // Controller untuk input email
   final TextEditingController emailController = TextEditingController();
 
+  HalamanForgotPassword({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Mengambil ukuran layar
@@ -17,7 +19,7 @@ class HalamanForgotPassword extends StatelessWidget {
     return Scaffold(
       // App bar dengan judul
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Lupa Password",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
           textAlign: TextAlign.center,
@@ -30,12 +32,13 @@ class HalamanForgotPassword extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             // Teks instruksi untuk user
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
+                  width: size.width - 40,
                   child: Text(
                     "Masukkan email untuk mendapatkan kode verifikasi",
                     textAlign: TextAlign.center,
@@ -43,7 +46,6 @@ class HalamanForgotPassword extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 12),
                   ),
-                  width: size.width - 40,
                 )
               ],
             ),
@@ -53,7 +55,7 @@ class HalamanForgotPassword extends StatelessWidget {
               controller: emailController,
               placeholder: "insert email",
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             // Tombol untuk lanjut ke halaman verifikasi
             RegulerButton(
                 handlePress: () {

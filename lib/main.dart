@@ -12,9 +12,8 @@ import "package:kasir_pintar/pages/halamanManajemenUser.dart";
 import "package:kasir_pintar/pages/halamanPelangganDanSuplier.dart";
 import "package:kasir_pintar/pages/halamanLaporan.dart";
 
-
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,21 +28,22 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        "halaman cover": (BuildContext context) => HalamanCover(),
+        "halaman cover": (BuildContext context) => const HalamanCover(),
         "halaman login": (BuildContext context) => HalamanLogin(),
         "halaman register": (context) => HalamanRegister(),
         "halaman ganti password": (context) => HalamanGantiProfile(),
         "halaman forgot password": (context) => HalamanForgotPassword(),
         "halaman password baru": (context) => HalamanNewPassword(),
         "halaman verifikasi email": (context) => HalamanVerifikasiEmail(),
-        "halaman dashboard" : (context) => HalamanDashboard(),
-        "halaman product" : (context) => HalamanProduct(),
-        "halaman transaksi" : (context) => HalamanTransaksi(),
-        "halaman manajemen user" : (context) => HalamanManajemenUser(),
-        "halaman pelanggan-suplier" : (context) => HalamanPelangganDanSuplier(),
-        "halaman laporan" : (context) => HalamanLaporan(),
+        "halaman dashboard": (context) => const HalamanDashboard(),
+        "halaman product": (context) => const HalamanProduct(),
+        "halaman transaksi": (context) => const HalamanTransaksi(),
+        "halaman manajemen user": (context) => const HalamanManajemenUser(),
+        "halaman pelanggan-suplier": (context) =>
+            const HalamanPelangganDanSuplier(),
+        "halaman laporan": (context) => const HalamanLaporan(),
       },
-      home: HalamanCover(),
+      home: const HalamanCover(),
     );
   }
 }
@@ -62,15 +62,15 @@ class HalamanCover extends StatelessWidget {
               'assets/images/cash-machine.png',
               height: 120,
             ),
-            SizedBox(height: 24),
-            Text(
+            const SizedBox(height: 24),
+            const Text(
               "Kasir Pintar",
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               "Solusi Kasir Modern untuk Bisnis Anda",
               style: TextStyle(
@@ -78,12 +78,12 @@ class HalamanCover extends StatelessWidget {
                 color: Colors.grey[600],
               ),
             ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, "halaman login");
               },
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                 child: Text(
                   "Mulai",

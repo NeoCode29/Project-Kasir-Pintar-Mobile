@@ -1,8 +1,12 @@
 // Import package yang dibutuhkan
 import 'package:flutter/material.dart';
+
+import 'package:http/http.dart';
+import 'dart:convert';
 import 'package:kasir_pintar/components/button.dart';
 import 'package:kasir_pintar/components/input.dart';
 import 'package:kasir_pintar/components/link.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // Widget halaman register
 class HalamanRegister extends StatelessWidget {
@@ -12,6 +16,51 @@ class HalamanRegister extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
   TextEditingController repeatPassController = TextEditingController();
   HalamanRegister({super.key});
+
+  Future<void> registerUser(context) async {
+    final url = Uri.parse("http://127.0.0.1:8000/api/register");
+    final headers = {
+      'Content-Type': 'application/json',
+    };
+    final body = {
+      'name': usernameController.text,
+      'email': emailController.text,
+      'password': passwordController.text,
+      'password_confirmation': repeatPassController.text,
+    };
+
+    try {
+      final response =
+          await post(url, headers: headers, body: jsonEncode(body));
+
+      if (response.statusCode == 200) {
+        // Berhasil mendaftar, tampilkan pesan sukses atau navigasi ke halaman lain.
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Berhasil mendaftar'),
+            backgroundColor: Colors.green,
+          ),
+        );
+        // Simpan token dan id dari response ke shared_pref
+        final prefs = await SharedPreferences.getInstance();
+        prefs.setString('token', jsonDecode(response.body)['access_token']);
+        final userId = jsonDecode(response.body)['data']["id"];
+        prefs.setInt('userId', userId);
+
+        Navigator.of(context).pushNamed('halaman login');
+      } else {
+        // Gagal mendaftar, tampilkan pesan error.
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Gagal mendaftar: ${response.body}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +73,7 @@ class HalamanRegister extends StatelessWidget {
           // Menonaktifkan tombol back default
           automaticallyImplyLeading: false,
           // Judul halaman register
-          title: Text(
+          title: const Text(
             "Register",
             style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
             textAlign: TextAlign.center,
@@ -35,18 +84,19 @@ class HalamanRegister extends StatelessWidget {
         // Body dengan scroll view
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 // Teks deskripsi halaman register
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
+                    SizedBox(
+                      width: size.width - 40,
                       child: Text(
                         "Buat akun baru untuk mendapatkan akses penuh ke fitur kami. Lengkapi informasi di bawah ini untuk mendaftar dan mulai pengalaman Anda bersama kami.",
                         textAlign: TextAlign.center,
@@ -54,11 +104,10 @@ class HalamanRegister extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontSize: 12),
                       ),
-                      width: size.width - 40,
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 // Input username
@@ -67,7 +116,7 @@ class HalamanRegister extends StatelessWidget {
                   controller: usernameController,
                   placeholder: "insert username",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 // Input email
@@ -76,37 +125,37 @@ class HalamanRegister extends StatelessWidget {
                   controller: emailController,
                   placeholder: "insert email",
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 // Input password
                 PasswordInput(
                   label: "password",
                   controller: passwordController,
                   placeholder: "insert password",
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 // Input konfirmasi password
                 PasswordInput(
                     label: "repeat password",
                     controller: repeatPassController,
                     placeholder: "insert repeat password"),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 // Tombol register
                 RegulerButton(
-                  handlePress: () {
-                    Navigator.pushNamed(context, "halaman verifikasi email");
-                  }, 
-                  label: "register"
-                ),
-                SizedBox(
+                    handlePress: () {
+                      print("hello world");
+                      registerUser(context);
+                    },
+                    label: "register"),
+                const SizedBox(
                   height: 24,
                 ),
                 // Link ke halaman login
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("sudah punya akun ?"),
+                    const Text("sudah punya akun ?"),
                     Link(
                         handlePress: () {
                           Navigator.pop(context);

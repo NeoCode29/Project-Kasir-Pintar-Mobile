@@ -16,14 +16,14 @@ class _GantiProfileState extends State<GantiProfile> {
         Container(
           width: 120,
           height: 120,
-          decoration: BoxDecoration(shape: BoxShape.circle),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
           child:
               Image.asset("assets/images/profile.png", width: 120, height: 120),
         ),
         Positioned(
-          child: CameraButton(handlePress: () {}),
           right: 0,
           bottom: 0,
+          child: CameraButton(handlePress: () {}),
         )
       ],
     );

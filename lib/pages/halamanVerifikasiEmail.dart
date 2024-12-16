@@ -7,6 +7,8 @@ class HalamanVerifikasiEmail extends StatelessWidget {
   // Controller untuk input email
   final TextEditingController emailController = TextEditingController();
 
+  HalamanVerifikasiEmail({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Mengambil ukuran layar
@@ -15,7 +17,7 @@ class HalamanVerifikasiEmail extends StatelessWidget {
     return Scaffold(
       // App bar dengan judul
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Verifikasi Email",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24),
           textAlign: TextAlign.center,
@@ -28,12 +30,13 @@ class HalamanVerifikasiEmail extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             // Teks instruksi untuk user
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
+                  width: size.width - 40,
                   child: Text(
                     "Kami membutuhkan Anda untuk memverifikasi alamat email Anda sebelum melanjutkan. Mohon cek email Anda dan ikuti petunjuk untuk menyelesaikan proses verifikasi.",
                     textAlign: TextAlign.center,
@@ -41,24 +44,24 @@ class HalamanVerifikasiEmail extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 12),
                   ),
-                  width: size.width - 40,
                 )
               ],
             ),
-            SizedBox(height: 18),
+            const SizedBox(height: 18),
             // Gambar ilustrasi email
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [Image.asset("assets/images/email.png", width: 160)],
             ),
-            SizedBox(
+            const SizedBox(
               height: 18,
             ),
             // Teks belum menerima email
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
+                SizedBox(
+                  width: size.width - 40,
                   child: Text(
                     "Belum menerima email",
                     textAlign: TextAlign.center,
@@ -66,11 +69,10 @@ class HalamanVerifikasiEmail extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 12),
                   ),
-                  width: size.width - 40,
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             // Tombol untuk kirim ulang email verifikasi
